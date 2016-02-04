@@ -1,0 +1,10 @@
+﻿{
+    "1": { "Name": "Action" },
+    "2": { "Name": "Adventure" },
+    "3": { "Name": "Crime" },
+    "4": { "Name": "Drama" },
+    "5": { "Name": "Fantasy" },
+    "6": { "Name": "Mystery" },
+    "7": { "Name": "Sci-fi" },
+    "8": { "Name": "Documentary" }
+}

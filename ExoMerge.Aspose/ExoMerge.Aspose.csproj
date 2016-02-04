@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExoMerge.Aspose</RootNamespace>
+    <AssemblyName>ExoMerge.Aspose</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Words, Version=13.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Aspose.Words.13.4.0\lib\net3.5\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=8.2.0.2160, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Resharper\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\RadioButtonSymbolGenerator.cs" />
+    <Compile Include="Common\CheckBoxSymbolGenerator.cs" />
+    <Compile Include="Common\CommentBuilder.cs" />
+    <Compile Include="Common\HyperlinkField.cs" />
+    <Compile Include="Common\InlineField.cs" />
+    <Compile Include="Common\NodeGenerator.cs" />
+    <Compile Include="Common\NodeRange.cs" />
+    <Compile Include="Common\QuoteCharacters.cs" />
+    <Compile Include="DocumentAdapter.cs" />
+    <Compile Include="DocumentMergeProvider.cs" />
+    <Compile Include="DocumentTextScanner.cs" />
+    <Compile Include="DocumentTokenCleanser.cs" />
+    <Compile Include="DocumentKeywordTokenParser.cs" />
+    <Compile Include="Extensions\BorderExtensions.cs" />
+    <Compile Include="Extensions\DocumentBuilderExtensions.cs" />
+    <Compile Include="Extensions\DocumentTokenExtensions.cs" />
+    <Compile Include="Extensions\FieldStartExtensions.cs" />
+    <Compile Include="Extensions\FontExtensions.cs" />
+    <Compile Include="Extensions\NodeEnumerableExtensions.cs" />
+    <Compile Include="Extensions\NodeExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ParagraphFormatExtensions.cs" />
+    <Compile Include="Extensions\ShadingExtensions.cs" />
+    <Compile Include="MergeFields\MergeFieldDocumentMergeProvider.cs" />
+    <Compile Include="MergeFields\MergeFieldFormatter.cs" />
+    <Compile Include="MergeFields\MergeFieldScanner.cs" />
+    <Compile Include="MergeFields\MergeFieldPrefixParser.cs" />
+    <Compile Include="MergeFields\MergeField.cs" />
+    <Compile Include="MergeFields\MergeFieldSwitchParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExoMerge\ExoMerge.csproj">
+      <Project>{dd827d8c-5374-4073-93a6-095a451c9a22}</Project>
+      <Name>ExoMerge</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

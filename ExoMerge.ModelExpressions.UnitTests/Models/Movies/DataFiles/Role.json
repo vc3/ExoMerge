@@ -1,0 +1,13 @@
+﻿{
+    "1": { "Actor": 1, "Movie": 1, "Name": "Robin Longstride", "Order": 0, "Star": true, "Lead": true, "Earnings": 235000.0 },
+    "2": { "Actor": 2, "Movie": 1, "Name": "Marion Loxley", "Order": 1, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "3": { "Actor": 3, "Movie": 1, "Name": "Sheriff of Nottingham", "Order": 2, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "4": { "Actor": 4, "Movie": 2, "Name": "Mr. Freeze / Dr. Victor Fries", "Order": 0, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "5": { "Actor": 5, "Movie": 2, "Name": "Batman / Bruce Wayne", "Order": 1, "Star": true, "Lead": true, "Earnings": 100000.0 },
+    "6": { "Actor": 6, "Movie": 2, "Name": "Robin / Dick Grayson", "Order": 2, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "7": { "Actor": 7, "Movie": 2, "Name": "Poison Ivy / Dr. Pamela Isley", "Order": 3, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "8": { "Actor": 8, "Movie": 3, "Name": "Dr. Peter Venkman", "Order": 3, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "9": { "Actor": 9, "Movie": 3, "Name": "Dr. Raymond Stantz", "Order": 3, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "10": { "Actor": 10, "Movie": 3, "Name": "Dana Barrett", "Order": 3, "Star": true, "Lead": false, "Earnings": 100000.0 },
+    "11": { "Actor": 11, "Movie": 3, "Name": "Dr. Egon Spengler", "Order": 3, "Star": true, "Lead": false, "Earnings": 100000.0 }
+}

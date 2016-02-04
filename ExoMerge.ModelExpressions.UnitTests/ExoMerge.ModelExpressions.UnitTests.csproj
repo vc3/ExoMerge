@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D6DC211-7FBD-4B4A-BB56-E89C82E90BE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExoMerge.ModelExpressions.UnitTests</RootNamespace>
+    <AssemblyName>ExoMerge.ModelExpressions.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="ModelExpressionParserTests.cs" />
+    <Compile Include="Models\Movies\Actor.cs" />
+    <Compile Include="Models\Movies\Director.cs" />
+    <Compile Include="Models\Movies\Genre.cs" />
+    <Compile Include="Models\Movies\Movie.cs" />
+    <Compile Include="Models\Movies\Person.cs" />
+    <Compile Include="Models\Movies\Role.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ExoModel\ExoModel.Json\ExoModel.Json.csproj">
+      <Project>{67e8a5cd-defb-47c7-9b2e-48a142eec404}</Project>
+      <Name>ExoModel.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoModel\ExoModel.UnitTests\ExoModel.UnitTests.csproj">
+      <Project>{943d65c3-5e48-4771-8ba8-a8494c0ffb32}</Project>
+      <Name>ExoModel.UnitTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoModel\ExoModel\ExoModel.csproj">
+      <Project>{f1d92af4-9e97-4d29-8a24-b3c3011f2a42}</Project>
+      <Name>ExoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExoMerge.ModelExpressions\ExoMerge.ModelExpressions.csproj">
+      <Project>{7f7f0403-f878-4dd5-9dd5-80c3cd6b6118}</Project>
+      <Name>ExoMerge.ModelExpressions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExoMerge.UnitTests\ExoMerge.UnitTests.csproj">
+      <Project>{6ccaa0fa-75c8-4b25-ae6f-2337c6a418a3}</Project>
+      <Name>ExoMerge.UnitTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExoMerge\ExoMerge.csproj">
+      <Project>{dd827d8c-5374-4073-93a6-095a451c9a22}</Project>
+      <Name>ExoMerge</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Movies\DataFiles\Actor.json" />
+    <None Include="Models\Movies\DataFiles\Director.json" />
+    <None Include="Models\Movies\DataFiles\Genre.json" />
+    <None Include="Models\Movies\DataFiles\Movie.json" />
+    <None Include="Models\Movies\DataFiles\Person.json" />
+    <None Include="Models\Movies\DataFiles\Role.json" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <UsingTask TaskName="Amender" AssemblyFile="$(ProjectDir)\..\..\ExoModel\ExoModel.Json.Amender\Dependencies\Afterthought\Afterthought.Amender.exe" />
+  <Target Name="AfterCompile">
+    <Amender TargetAssembly="@(IntermediateAssembly->'%(FullPath)')" AmendmentAssemblies="$(ProjectDir)\..\..\ExoModel\ExoModel.Json.Amender\Output\ExoModel.Json.Amender.dll" ReferenceAssemblies="@(ReferencePath)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

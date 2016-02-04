@@ -1,0 +1,21 @@
+# User-specific files
+
+*.suo
+*.user
+
+# Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+TestResults/
+
+# NuGet packages
+
+packages/*/
+
+# Aspose Licenses
+Aspose.*.lic

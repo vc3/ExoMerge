@@ -1,0 +1,151 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge", "ExoMerge\ExoMerge.csproj", "{DD827D8C-5374-4073-93A6-095A451C9A22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge.UnitTests", "ExoMerge.UnitTests\ExoMerge.UnitTests.csproj", "{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge.Aspose", "ExoMerge.Aspose\ExoMerge.Aspose.csproj", "{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge.Aspose.UnitTests", "ExoMerge.Aspose.UnitTests\ExoMerge.Aspose.UnitTests.csproj", "{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge.ModelExpressions", "ExoMerge.ModelExpressions\ExoMerge.ModelExpressions.csproj", "{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{71A96F61-4BAB-4547-B20D-B1AB93A73256}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resharper", "Resharper", "{D1A649F4-AA0E-41F7-A1CB-A90DC436892C}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\Resharper\JetBrains.Annotations.dll = Dependencies\Resharper\JetBrains.Annotations.dll
+		Dependencies\Resharper\JetBrains.Annotations.xml = Dependencies\Resharper\JetBrains.Annotations.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A2A74106-B55A-41A2-9E93-2DAA462CABC4}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoModel", "..\ExoModel\ExoModel\ExoModel.csproj", "{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B730EA0E-AA67-4632-BB7C-BA3FDDF85B62}"
+	ProjectSection(SolutionItems) = preProject
+		packages\repositories.config = packages\repositories.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge.OpenXml", "ExoMerge.OpenXml\ExoMerge.OpenXml.csproj", "{212A0753-9D39-4819-B95A-D677D66353F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoMerge.OpenXml.UnitTests", "ExoMerge.OpenXml.UnitTests\ExoMerge.OpenXml.UnitTests.csproj", "{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.vc3.com:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ExoMerge\\ExoMerge.csproj
+		SccProjectName1 = ExoMerge
+		SccLocalPath1 = ExoMerge
+		SccProjectUniqueName2 = ExoMerge.Aspose\\ExoMerge.Aspose.csproj
+		SccProjectName2 = ExoMerge.Aspose
+		SccLocalPath2 = ExoMerge.Aspose
+		SccProjectUniqueName3 = ExoMerge.ModelExpressions\\ExoMerge.ModelExpressions.csproj
+		SccProjectName3 = ExoMerge.ModelExpressions
+		SccLocalPath3 = ExoMerge.ModelExpressions
+		SccProjectUniqueName4 = ExoMerge.Aspose.UnitTests\\ExoMerge.Aspose.UnitTests.csproj
+		SccProjectName4 = ExoMerge.Aspose.UnitTests
+		SccLocalPath4 = ExoMerge.Aspose.UnitTests
+		SccProjectUniqueName5 = ExoMerge.UnitTests\\ExoMerge.UnitTests.csproj
+		SccProjectName5 = ExoMerge.UnitTests
+		SccLocalPath5 = ExoMerge.UnitTests
+		SccProjectUniqueName6 = ..\\ExoModel\\ExoModel\\ExoModel.csproj
+		SccProjectName6 = ../ExoModel/ExoModel
+		SccLocalPath6 = ..\\ExoModel\\ExoModel
+		SccProjectUniqueName7 = ExoMerge.OpenXml\\ExoMerge.OpenXml.csproj
+		SccProjectName7 = ExoMerge.OpenXml
+		SccLocalPath7 = ExoMerge.OpenXml
+		SccProjectUniqueName8 = ExoMerge.OpenXml.UnitTests\\ExoMerge.OpenXml.UnitTests.csproj
+		SccProjectName8 = ExoMerge.OpenXml.UnitTests
+		SccLocalPath8 = ExoMerge.OpenXml.UnitTests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugNinject|Any CPU = DebugNinject|Any CPU
+		DebugStructureMap|Any CPU = DebugStructureMap|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.DebugNinject|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.DebugNinject|Any CPU.Build.0 = Debug|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.DebugStructureMap|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.DebugStructureMap|Any CPU.Build.0 = Debug|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD827D8C-5374-4073-93A6-095A451C9A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.DebugNinject|Any CPU.ActiveCfg = DebugNinject|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.DebugNinject|Any CPU.Build.0 = DebugNinject|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.DebugStructureMap|Any CPU.ActiveCfg = DebugStructureMap|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.DebugStructureMap|Any CPU.Build.0 = DebugStructureMap|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CCAA0FA-75C8-4B25-AE6F-2337C6A418A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.DebugNinject|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.DebugNinject|Any CPU.Build.0 = Debug|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.DebugStructureMap|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.DebugStructureMap|Any CPU.Build.0 = Debug|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1F52E4-CAE6-49F8-AF4A-DA7416AF3ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.DebugNinject|Any CPU.ActiveCfg = DebugNinject|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.DebugNinject|Any CPU.Build.0 = DebugNinject|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.DebugStructureMap|Any CPU.ActiveCfg = DebugStructureMap|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.DebugStructureMap|Any CPU.Build.0 = DebugStructureMap|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F3357D0-196F-4F1F-B4AD-AE8C916474E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.DebugNinject|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.DebugNinject|Any CPU.Build.0 = Debug|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.DebugStructureMap|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.DebugStructureMap|Any CPU.Build.0 = Debug|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7F0403-F878-4DD5-9DD5-80C3CD6B6118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.DebugNinject|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.DebugNinject|Any CPU.Build.0 = Debug|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.DebugStructureMap|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.DebugStructureMap|Any CPU.Build.0 = Debug|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D92AF4-9E97-4D29-8A24-B3C3011F2A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.DebugNinject|Any CPU.ActiveCfg = Debug|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.DebugNinject|Any CPU.Build.0 = Debug|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.DebugStructureMap|Any CPU.ActiveCfg = Debug|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.DebugStructureMap|Any CPU.Build.0 = Debug|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212A0753-9D39-4819-B95A-D677D66353F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.DebugNinject|Any CPU.ActiveCfg = DebugNinject|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.DebugNinject|Any CPU.Build.0 = DebugNinject|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.DebugStructureMap|Any CPU.ActiveCfg = DebugStructureMap|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.DebugStructureMap|Any CPU.Build.0 = DebugStructureMap|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F59FCE-1A4E-4483-8C0B-C89B0DEA5845}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1A649F4-AA0E-41F7-A1CB-A90DC436892C} = {71A96F61-4BAB-4547-B20D-B1AB93A73256}
+	EndGlobalSection
+EndGlobal

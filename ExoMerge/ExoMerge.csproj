@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD827D8C-5374-4073-93A6-095A451C9A22}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExoMerge</RootNamespace>
+    <AssemblyName>ExoMerge</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\Dependencies\Resharper\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analysis\IGeneratorFactory.cs" />
+    <Compile Include="Analysis\IExpressionParser.cs" />
+    <Compile Include="Analysis\KeywordGeneratorFactory.cs" />
+    <Compile Include="Analysis\KeywordPrefixParser.cs" />
+    <Compile Include="Analysis\KeywordTokenParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\TokenParseResult.cs" />
+    <Compile Include="DataAccess\DataContext.cs" />
+    <Compile Include="Analysis\IOptionParser.cs" />
+    <Compile Include="Documents\DocumentMergeProvider.cs" />
+    <Compile Include="Documents\DocumentNodeType.cs" />
+    <Compile Include="Documents\DocumentTextEncoding.cs" />
+    <Compile Include="Documents\DocumentTextScanner.cs" />
+    <Compile Include="Documents\DocumentToken.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documents\Extensions\DocumentAdapterExtensions.cs" />
+    <Compile Include="Helpers\ValueConverter.cs" />
+    <Compile Include="MergeError.cs" />
+    <Compile Include="MergeTemplate.cs" />
+    <Compile Include="MergeTemplateCompiler.cs" />
+    <Compile Include="Analysis\TokenType.cs" />
+    <Compile Include="Documents\DocumentMergeWriter.cs" />
+    <Compile Include="Documents\IDocumentAdapter.cs" />
+    <Compile Include="Rendering\BooleanGenerator.cs" />
+    <Compile Include="Rendering\IGenerator.cs" />
+    <Compile Include="Rendering\IMergeWriter.cs" />
+    <Compile Include="Analysis\ITokenParser.cs" />
+    <Compile Include="Structure\Container.cs" />
+    <Compile Include="Structure\Conditional.cs" />
+    <Compile Include="Structure\IRegion.cs" />
+    <Compile Include="Analysis\IToken.cs" />
+    <Compile Include="Structure\Field.cs" />
+    <Compile Include="Structure\RegionNodes.cs" />
+    <Compile Include="Structure\Repeatable.cs" />
+    <Compile Include="DataAccess\IDataProvider.cs" />
+    <Compile Include="Analysis\ITemplateScanner.cs" />
+    <Compile Include="MergeProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,14 @@
+﻿{
+    "1": { "Person": 2, "Roles": [1], "BioPreview": "Russell Ira Crowe (born 7 April 1964) is a New Zealander Australian actor...", "Bio": null },
+    "2": { "Person": 3, "Roles": [2], "BioPreview": null, "Bio": null },
+    "3": { "Person": 4, "Roles": [3], "BioPreview": null, "Bio": null },
+    "4": { "Person": 6, "Roles": [4], "BioPreview": null, "Bio": null },
+    "5": { "Person": 7, "Roles": [5], "BioPreview": null, "Bio": null },
+    "6": { "Person": 8, "Roles": [6], "BioPreview": null, "Bio": null },
+    "7": { "Person": 9, "Roles": [7], "BioPreview": null, "Bio": null },
+    "8": { "Person": 11, "Roles": [8], "BioPreview": null, "Bio": null },
+    "9": { "Person": 12, "Roles": [9], "BioPreview": null, "Bio": null },
+    "10": { "Person": 13, "Roles": [10], "BioPreview": null, "Bio": null },
+    "11": { "Person": 14, "Roles": [11], "BioPreview": null, "Bio": null },
+    "12": { "Person": 16, "Roles": [], "BioPreview": null, "Bio": null }
+}
