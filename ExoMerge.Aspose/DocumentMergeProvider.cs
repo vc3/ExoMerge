@@ -469,6 +469,8 @@ namespace ExoMerge.Aspose
 					else
 						priorPara.ParagraphFormat.SpaceAfterAuto = true;
 				}
+
+				return;
 			}
 
 			base.MergeStandardFieldValue(document, field, rawValue, textValue);
