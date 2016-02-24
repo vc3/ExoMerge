@@ -493,7 +493,7 @@ namespace ExoMerge.Aspose
 		/// <param name="generatorFactory">An object that can assign custom generators.</param>
 		/// <param name="dataProvider">An object used to access source data while merging.</param>
 		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
-			: this(tokenStart, tokenEnd, false, new DocumentKeywordTokenParser<TSourceType>(), expressionParser, generatorFactory, dataProvider)
+			: this(tokenStart, tokenEnd, '\0', false, new DocumentKeywordTokenParser<TSourceType>(), expressionParser, generatorFactory, dataProvider)
 		{
 		}
 
@@ -507,7 +507,7 @@ namespace ExoMerge.Aspose
 		/// <param name="generatorFactory">An object that can assign custom generators.</param>
 		/// <param name="dataProvider">An object used to access source data while merging.</param>
 		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, ITokenParser<TSourceType> tokenParser, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
-			: this(tokenStart, tokenEnd, false, tokenParser, expressionParser, generatorFactory, dataProvider)
+			: this(tokenStart, tokenEnd, '\0', false, tokenParser, expressionParser, generatorFactory, dataProvider)
 		{
 		}
 
@@ -516,12 +516,27 @@ namespace ExoMerge.Aspose
 		/// </summary>
 		/// <param name="tokenStart">The text that marks the start of a token.</param>
 		/// <param name="tokenEnd">The text that marks the end of a token.</param>
+		/// <param name="tokenEscapeCharacter">The character used to escape characters which should not be considered a start or end marker of a token.</param>
+		/// <param name="expressionParser">The object to use to parse the raw expression text.</param>
+		/// <param name="generatorFactory">An object that can assign custom generators.</param>
+		/// <param name="dataProvider">An object used to access source data while merging.</param>
+		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, char tokenEscapeCharacter, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
+			: this(new DocumentAdapter(), tokenStart, tokenEnd, tokenEscapeCharacter, false, new DocumentKeywordTokenParser<TSourceType>(), expressionParser, generatorFactory, dataProvider)
+		{
+		}
+
+		/// <summary>
+		/// Creates a new merge provider.
+		/// </summary>
+		/// <param name="tokenStart">The text that marks the start of a token.</param>
+		/// <param name="tokenEnd">The text that marks the end of a token.</param>
+		/// <param name="tokenEscapeCharacter">The character used to escape characters which should not be considered a start or end marker of a token.</param>
 		/// <param name="tokenStrictMode">If true, nested or unexpected token characters are not allowed and will result in an exception.</param>
 		/// <param name="expressionParser">The object to use to parse the raw expression text.</param>
 		/// <param name="generatorFactory">An object that can assign custom generators.</param>
 		/// <param name="dataProvider">An object used to access source data while merging.</param>
-		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, bool tokenStrictMode, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
-			: this(new DocumentAdapter(), tokenStart, tokenEnd, tokenStrictMode, new DocumentKeywordTokenParser<TSourceType>(), expressionParser, generatorFactory, dataProvider)
+		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, char tokenEscapeCharacter, bool tokenStrictMode, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
+			: this(new DocumentAdapter(), tokenStart, tokenEnd, tokenEscapeCharacter, tokenStrictMode, new DocumentKeywordTokenParser<TSourceType>(), expressionParser, generatorFactory, dataProvider)
 		{
 		}
 
@@ -530,13 +545,30 @@ namespace ExoMerge.Aspose
 		/// </summary>
 		/// <param name="tokenStart">The text that marks the start of a token.</param>
 		/// <param name="tokenEnd">The text that marks the end of a token.</param>
+		/// <param name="tokenEscapeCharacter">The character used to escape characters which should not be considered a start or end marker of a token.</param>
+		/// <param name="tokenParser">The object to use to parse the tokens' text.</param>
+		/// <param name="expressionParser">The object to use to parse the raw expression text.</param>
+		/// <param name="generatorFactory">An object that can assign custom generators.</param>
+		/// <param name="dataProvider">An object used to access source data while merging.</param>
+		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, char tokenEscapeCharacter, ITokenParser<TSourceType> tokenParser, IExpressionParser<TSourceType, TExpression> expressionParser,
+			IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
+			: this(new DocumentAdapter(), tokenStart, tokenEnd, tokenEscapeCharacter, false, tokenParser, expressionParser, generatorFactory, dataProvider)
+		{
+		}
+
+		/// <summary>
+		/// Creates a new merge provider.
+		/// </summary>
+		/// <param name="tokenStart">The text that marks the start of a token.</param>
+		/// <param name="tokenEnd">The text that marks the end of a token.</param>
+		/// <param name="tokenEscapeCharacter">The character used to escape characters which should not be considered a start or end marker of a token.</param>
 		/// <param name="tokenStrictMode">If true, nested or unexpected token characters are not allowed and will result in an exception.</param>
 		/// <param name="tokenParser">The object to use to parse the tokens' text.</param>
 		/// <param name="expressionParser">The object to use to parse the raw expression text.</param>
 		/// <param name="generatorFactory">An object that can assign custom generators.</param>
 		/// <param name="dataProvider">An object used to access source data while merging.</param>
-		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, bool tokenStrictMode, ITokenParser<TSourceType> tokenParser, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
-			: this(new DocumentAdapter(), tokenStart, tokenEnd, tokenStrictMode, tokenParser, expressionParser, generatorFactory, dataProvider)
+		public DocumentTextMergeProvider(string tokenStart, string tokenEnd, char tokenEscapeCharacter, bool tokenStrictMode, ITokenParser<TSourceType> tokenParser, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
+			: this(new DocumentAdapter(), tokenStart, tokenEnd, tokenEscapeCharacter, tokenStrictMode, tokenParser, expressionParser, generatorFactory, dataProvider)
 		{
 		}
 
@@ -546,13 +578,14 @@ namespace ExoMerge.Aspose
 		/// <param name="adapter">An object used to access and manipulate the document.</param>
 		/// <param name="tokenStart">The text that marks the start of a token.</param>
 		/// <param name="tokenEnd">The text that marks the end of a token.</param>
+		/// <param name="tokenEscapeCharacter">The character used to escape characters which should not be considered a start or end marker of a token.</param>
 		/// <param name="tokenStrictMode">If true, nested or unexpected token characters are not allowed and will result in an exception.</param>
 		/// <param name="tokenParser">The object to use to parse the tokens' text.</param>
 		/// <param name="expressionParser">The object to use to parse the raw expression text.</param>
 		/// <param name="generatorFactory">An object that can assign custom generators.</param>
 		/// <param name="dataProvider">An object used to access source data while merging.</param>
-		private DocumentTextMergeProvider(IDocumentAdapter<Document, Node> adapter, string tokenStart, string tokenEnd, bool tokenStrictMode, ITokenParser<TSourceType> tokenParser, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
-			: base(adapter, new DocumentTextScanner(adapter, tokenStart, tokenEnd, tokenStrictMode), tokenParser, expressionParser, generatorFactory, dataProvider)
+		private DocumentTextMergeProvider(IDocumentAdapter<Document, Node> adapter, string tokenStart, string tokenEnd, char tokenEscapeCharacter, bool tokenStrictMode, ITokenParser<TSourceType> tokenParser, IExpressionParser<TSourceType, TExpression> expressionParser, IGeneratorFactory<IGenerator<Document, Node, TSourceType, TSource, TExpression>> generatorFactory, IDataProvider<TSourceType, TSource, TExpression> dataProvider)
+			: base(adapter, new DocumentTextScanner(adapter, tokenStart, tokenEnd, tokenEscapeCharacter, tokenStrictMode), tokenParser, expressionParser, generatorFactory, dataProvider)
 		{
 		}
 	}

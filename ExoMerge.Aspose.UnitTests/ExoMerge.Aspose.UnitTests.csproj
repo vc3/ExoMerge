@@ -87,6 +87,9 @@
     <Compile Include="MergeFieldScannerTests.cs" />
     <Compile Include="MergeFieldTests.cs" />
     <Compile Include="NodeTextMergeTests.cs" />
+    <Compile Include="NodeTextScannerTests.Helpers.cs">
+      <DependentUpon>NodeTextScannerTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NodeTextScannerTests.cs" />
     <Compile Include="QuoteCharactersTests.cs" />

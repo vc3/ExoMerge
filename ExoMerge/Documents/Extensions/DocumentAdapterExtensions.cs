@@ -6,6 +6,50 @@
 	public static class DocumentAdapterExtensions
 	{
 		/// <summary>
+		/// Clones the given run and splits it's text after the given index, assigning the left
+		/// portion to the new node and the following text to the existing node.
+		/// </summary>
+		/// <param name="adapter">The document adapter.</param>
+		/// <param name="run">The run to clone/split.</param>
+		/// <param name="endIndex">The index of the last character of text to assign to the cloned node.</param>
+		/// <returns>The cloned node.</returns>
+		public static TNode SpliceLeft<TDocument, TNode>(this IDocumentAdapter<TDocument, TNode> adapter, TNode run, int endIndex)
+		{
+			var prependRun = adapter.Clone(run, false);
+
+			var text = adapter.GetText(run);
+
+			adapter.SetText(prependRun, text.Substring(0, endIndex + 1));
+			adapter.SetText(run, text.Substring(endIndex + 1));
+
+			adapter.InsertBefore(prependRun, run);
+
+			return prependRun;
+		}
+
+		/// <summary>
+		/// Clones the given run and splits it's text starting at the given index, assigning the right
+		/// portion to the new node and the preceding text to the existing node.
+		/// </summary>
+		/// <param name="adapter">The document adapter.</param>
+		/// <param name="run">The run to clone/split.</param>
+		/// <param name="startIndex">The index of the first character of text to assign to the cloned node.</param>
+		/// <returns>The cloned node.</returns>
+		public static TNode SpliceRight<TDocument, TNode>(this IDocumentAdapter<TDocument, TNode> adapter, TNode run, int startIndex)
+		{
+			var appendRun = adapter.Clone(run, false);
+
+			var text = adapter.GetText(run);
+
+			adapter.SetText(appendRun, text.Substring(startIndex));
+			adapter.SetText(run, text.Substring(0, startIndex));
+
+			adapter.InsertAfter(appendRun, run);
+
+			return appendRun;
+		}
+
+		/// <summary>
 		/// Clone the given node and insert it before the given 'insertBefore' node.
 		/// </summary>
 		public static T CloneAndInsertBefore<TDocument, TNode, T>(this IDocumentAdapter<TDocument, TNode> adapter, T node, TNode insertBefore, bool recursive)

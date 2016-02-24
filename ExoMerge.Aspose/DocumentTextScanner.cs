@@ -5,6 +5,7 @@ using Aspose.Words;
 using Aspose.Words.Fields;
 using ExoMerge.Aspose.Common;
 using ExoMerge.Documents;
+using ExoMerge.Documents.Extensions;
 
 namespace ExoMerge.Aspose
 {
@@ -17,8 +18,8 @@ namespace ExoMerge.Aspose
 		/// <summary>
 		/// Creates a new instance that will identify tokens using the given start and end markers.
 		/// </summary>
-		public DocumentTextScanner(IDocumentAdapter<Document, Node> adapter, string tokenStart, string tokenEnd, bool strict = false)
-			: base(adapter, tokenStart, tokenEnd, strict)
+		public DocumentTextScanner(IDocumentAdapter<Document, Node> adapter, string tokenStart, string tokenEnd, char escapeCharacter = '\0', bool strict = false)
+			: base(adapter, tokenStart, tokenEnd, escapeCharacter, strict)
 		{
 		}
 
@@ -91,7 +92,7 @@ namespace ExoMerge.Aspose
 					// If the run overlaps with the value start index, then split the run in two.
 					if (previousRunsTextLength < valueStart + 1 && previousRunsTextLength + currentRunText.Length > valueStart)
 					{
-						runs.Insert(currentRunIndex + 1, SpliceRight(runs[currentRunIndex], valueStart - previousRunsTextLength));
+						runs.Insert(currentRunIndex + 1, Adapter.SpliceRight(runs[currentRunIndex], valueStart - previousRunsTextLength));
 
 						// Update vars to reflect the fact that the run was split.
 						previousRunsTextLength += valueStart - previousRunsTextLength;
@@ -100,7 +101,7 @@ namespace ExoMerge.Aspose
 
 					// If the run overlaps with the value end index, then split the run in two.
 					if (previousRunsTextLength < valueEnd + 1 && previousRunsTextLength + currentRunText.Length - 1 > valueEnd)
-						runs.Insert(currentRunIndex, SpliceLeft(runs[currentRunIndex], valueEnd - previousRunsTextLength));
+						runs.Insert(currentRunIndex, Adapter.SpliceLeft(runs[currentRunIndex], valueEnd - previousRunsTextLength));
 
 					// No need to continue if we've gone beyond hte value portion of the hyperlink.
 					return previousRunsTextLength + currentRunText.Length < valueEnd;
