@@ -11,6 +11,9 @@ namespace ExoMerge.Rendering
 	public abstract class BooleanGenerator<TResult, TContent, TSourceType, TSource, TExpression> : IGenerator<TResult, TContent, TSourceType, TSource, TExpression>
 		where TExpression : class
 	{
+		/// <summary>
+		/// Gets the type of data that the generator's expression should return.
+		/// </summary>
 		public Type ExpectedType { get { return null; } }
 
 		/// <summary>

@@ -15,6 +15,9 @@ namespace ExoMerge.Rendering
 	public interface IGenerator<in TTarget, out TContent, in TSourceType, TSource, TExpression>
 		where TExpression : class
 	{
+		/// <summary>
+		/// Gets the type of data that the generator's expression should return.
+		/// </summary>
 		Type ExpectedType { get; }
 
 		/// <summary>
