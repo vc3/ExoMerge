@@ -1,4 +1,5 @@
-﻿using ExoMerge.Analysis;
+﻿using System.Linq.Expressions;
+using ExoMerge.Analysis;
 using ExoModel;
 
 namespace ExoMerge.ModelExpressions
@@ -8,9 +9,9 @@ namespace ExoMerge.ModelExpressions
 	/// </summary>
 	public class ModelExpressionParser : IExpressionParser<ModelType, ModelExpression>
 	{
-		protected virtual ModelType GetResultModelType(ModelType sourceType, ModelExpression expression)
+		protected virtual ModelProperty UnpackDynamicMemberAccess(UnaryExpression expression)
 		{
-			return expression.GetResultModelType();
+			return null;
 		}
 
 		public ModelExpression Parse(ModelType sourceType, string text)
@@ -21,9 +22,9 @@ namespace ExoMerge.ModelExpressions
 			return sourceType.GetExpression(null, text);
 		}
 
-		public ModelType GetResultType(ModelExpression expression)
+		public virtual ModelType GetResultType(ModelExpression expression)
 		{
-			return GetResultModelType(expression.RootType, expression);
+			return expression.GetResultModelType(UnpackDynamicMemberAccess);
 		}
 	}
 }
