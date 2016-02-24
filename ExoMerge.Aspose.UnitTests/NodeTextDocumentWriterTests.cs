@@ -506,7 +506,7 @@ namespace ExoMerge.Aspose.UnitTests
 				      </Paragraph>
 				    </Body>
 				  </Section>
-				  <Section>
+				  <Section pagesetup_sectionstart='Continuous'>
 				    <Body>
 				      <Paragraph>
 				        <Run>{{ each Items }}</Run>
