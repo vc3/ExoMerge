@@ -64,44 +64,46 @@ namespace ExoMerge.Documents
 		/// <summary>
 		/// Called when a cell's contents has been emptied during merge.
 		/// </summary>
-		protected virtual void OnCellEmptied(TNode cell, bool forceRemoval = false)
+		protected virtual void OnCellEmptied(TNode cell)
 		{
 			var row = Adapter.GetAncestor(cell, DocumentNodeType.TableRow);
 
 			// Determine if the cell is the only cell in the row...
 			if (cell == Adapter.GetFirstChild(row) && cell == Adapter.GetLastChild(row))
-				OnRowEmptied(cell);
+				OnRowEmptied(row);
 		}
 
 		/// <summary>
 		/// Called when a row's contents has been emptied during merge.
 		/// </summary>
+		/// <param name="row">The row that was emptied.</param>
+		/// <param name="forceRemoval">True if the row should always be removed, whether or not the 'KeepEmptyRegionRows' option is enabled.</param>
 		protected virtual void OnRowEmptied(TNode row, bool forceRemoval = false)
 		{
 			var parentTable = Adapter.GetAncestor(row, DocumentNodeType.Table);
 
-			if (Adapter.GetChildren(parentTable).Count() == 1)
+			if (forceRemoval || !KeepEmptyRegionRows)
 			{
-				// This is the last row it the table, so remove the table.
-				OnTableEmptied(parentTable);
-			}
-			else if (forceRemoval || !KeepEmptyRegionRows)
-			{
-				// Otherwise, just remove the row.
-				Adapter.Remove(row);
+				if (Adapter.GetChildren(parentTable).Count() == 1)
+				{
+					// This is the last row it the table, so remove the table.
+					OnTableEmptied(parentTable);
+				}
+				else
+				{
+					// Otherwise, just remove the row.
+					Adapter.Remove(row);
+				}
 			}
 		}
 
 		/// <summary>
 		/// Called when a row's contents has been emptied during merge.
 		/// </summary>
-		protected virtual void OnTableEmptied(TNode table, bool forceRemoval = false)
+		protected virtual void OnTableEmptied(TNode table)
 		{
-			if (!forceRemoval || KeepEmptyRegionRows)
-			{
-				// Remove the table
-				Adapter.Remove(table);
-			}
+			// Remove the table
+			Adapter.Remove(table);
 		}
 
 		/// <summary>
