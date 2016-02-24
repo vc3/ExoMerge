@@ -30,9 +30,9 @@ namespace ExoMerge.Aspose.MergeFields
 		/// Gets a value for the given expression. The merge field formatting switches
 		/// are extracted from the expression, then used to format the resulting value.
 		/// </summary>
-		protected override string GetStandardFieldValue(DataContext<TSource, string> context, string expression, KeyValuePair<string, string>[] options, out object rawValue)
+		protected override string GetStandardFieldValue(DataContext<TSource, string> context, string expression, KeyValuePair<string, string>[] options)
 		{
-			rawValue = DataProvider.GetValue(context, expression);
+			var rawValue = DataProvider.GetValue(context, expression);
 
 			return MergeFieldFormatter.ApplyFormats(rawValue, options);
 		}

@@ -59,9 +59,9 @@ namespace ExoMerge.UnitTests.Common
 			return Evaluate(context.Source, expression);
 		}
 
-		public string GetFormattedValue(DataContext<object, string> context, string expression, string format, IFormatProvider provider, out object rawValue)
+		public string GetFormattedValue(DataContext<object, string> context, string expression, string format, IFormatProvider provider)
 		{
-			rawValue = Evaluate(context.Source, expression);
+			var rawValue = Evaluate(context.Source, expression);
 
 			if (rawValue == null)
 				return string.Empty;

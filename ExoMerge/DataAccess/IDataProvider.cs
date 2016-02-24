@@ -35,8 +35,7 @@ namespace ExoMerge.DataAccess
 		/// <param name="expression">The expression to evaluate.</param>
 		/// <param name="format">The format string.</param>
 		/// <param name="provider">The format provider.</param>
-		/// <param name="rawValue">The unformatted value.</param>
 		/// <returns>The result of evaluating the expression for the current source object.</returns>
-		string GetFormattedValue([NotNull] DataContext<TSource, TExpression> context, [NotNull] TExpression expression, string format, IFormatProvider provider, out object rawValue);
+		string GetFormattedValue([NotNull] DataContext<TSource, TExpression> context, [NotNull] TExpression expression, string format, IFormatProvider provider);
 	}
 }

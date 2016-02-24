@@ -539,12 +539,11 @@ namespace ExoMerge
 		/// </summary>
 		protected virtual void MergeStandardField(TTarget target, Field<TTarget, TElement, TToken, TSourceType, TSource, TExpression> field, DataContext<TSource, TExpression> context, MergeErrorAction errorAction, ICollection<MergeError<TToken>> errorList)
 		{
-			object rawValue;
 			string textValue;
 
 			try
 			{
-				textValue = GetStandardFieldValue(context, field.Expression, field.Options, out rawValue);
+				textValue = GetStandardFieldValue(context, field.Expression, field.Options);
 			}
 			catch (MergeStopException)
 			{
@@ -558,7 +557,7 @@ namespace ExoMerge
 
 			try
 			{
-				MergeStandardFieldValue(target, field, rawValue, textValue);
+				MergeStandardFieldValue(target, field, textValue);
 			}
 			catch (MergeStopException)
 			{
@@ -579,7 +578,7 @@ namespace ExoMerge
 		/// and the current data context, but there are cases where the document itself dictates
 		/// the value in some way, and this logic should not polute the data provider.
 		/// </remarks>
-		protected virtual string GetStandardFieldValue(DataContext<TSource, TExpression> context, TExpression expression, KeyValuePair<string, string>[] options, out object rawValue)
+		protected virtual string GetStandardFieldValue(DataContext<TSource, TExpression> context, TExpression expression, KeyValuePair<string, string>[] options)
 		{
 			string format = null;
 
@@ -590,20 +589,20 @@ namespace ExoMerge
 				format = formatOption.Value;
 			}
 
-			return DataProvider.GetFormattedValue(context, expression, format, null, out rawValue);
+			return DataProvider.GetFormattedValue(context, expression, format, null);
 		}
 
 		/// <summary>
 		/// Generate nodes for the given value to replace the given standard field.
 		/// </summary>
-		protected abstract TElement[] GenerateStandardFieldContent(TTarget result, Field<TTarget, TElement, TToken, TSourceType, TSource, TExpression> field, object rawValue, string textValue);
+		protected abstract TElement[] GenerateStandardFieldContent(TTarget result, Field<TTarget, TElement, TToken, TSourceType, TSource, TExpression> field, string textValue);
 
 		/// <summary>
 		/// Merge a standard value field with the given value.
 		/// </summary>
-		protected virtual void MergeStandardFieldValue(TTarget target, Field<TTarget, TElement, TToken, TSourceType, TSource, TExpression> field, object rawValue, string textValue)
+		protected virtual void MergeStandardFieldValue(TTarget target, Field<TTarget, TElement, TToken, TSourceType, TSource, TExpression> field, string textValue)
 		{
-			var content = GenerateStandardFieldContent(target, field, rawValue, textValue);
+			var content = GenerateStandardFieldContent(target, field, textValue);
 
 			Writer.ReplaceToken(target, field.Token, content);
 		}

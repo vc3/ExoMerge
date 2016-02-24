@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using ExoMerge.Analysis;
 using ExoModel;
+using System;
 
 namespace ExoMerge.ModelExpressions
 {
@@ -14,12 +15,12 @@ namespace ExoMerge.ModelExpressions
 			return null;
 		}
 
-		public ModelExpression Parse(ModelType sourceType, string text)
+		public ModelExpression Parse(ModelType sourceType, string text, Type resultType)
 		{
 			if (sourceType == null)
 				return null;
 
-			return sourceType.GetExpression(null, text);
+			return sourceType.GetExpression(resultType, text);
 		}
 
 		public virtual ModelType GetResultType(ModelExpression expression)

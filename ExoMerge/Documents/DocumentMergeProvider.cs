@@ -420,7 +420,7 @@ namespace ExoMerge.Documents
 		/// <summary>
 		/// Generate nodes for the given value to replace the given standard field.
 		/// </summary>
-		protected override TNode[] GenerateStandardFieldContent(TDocument document, Field<TDocument, TNode, DocumentToken<TNode>, TSourceType, TSource, TExpression> field, object rawValue, string textValue)
+		protected override TNode[] GenerateStandardFieldContent(TDocument document, Field<TDocument, TNode, DocumentToken<TNode>, TSourceType, TSource, TExpression> field, string textValue)
 		{
 			TNode firstRun = null;
 

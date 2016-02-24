@@ -184,7 +184,10 @@ namespace ExoMerge
 							{
 								try
 								{
-									var expr = expressionParser.Parse(currentType, value);
+									var expectedType = customGenerator != null ? customGenerator.ExpectedType :
+														parsed.Options != null && parsed.Options.Any(o => o.Key.Equals("format", StringComparison.InvariantCultureIgnoreCase)) ? null : typeof(string);
+								
+									var expr = expressionParser.Parse(currentType, value, expectedType);
 
 									if (expr == null)
 									{
@@ -237,7 +240,7 @@ namespace ExoMerge
 							{
 								try
 								{
-									var expr = expressionParser.Parse(currentType, parsed.Value);
+									var expr = expressionParser.Parse(currentType, parsed.Value, null);
 
 									if (expr == null)
 									{
@@ -339,7 +342,7 @@ namespace ExoMerge
 							{
 								try
 								{
-									var expr = expressionParser.Parse(currentType, parsed.Value);
+									var expr = expressionParser.Parse(currentType, parsed.Value, null);
 
 									if (expr == null)
 									{
@@ -387,7 +390,7 @@ namespace ExoMerge
 							{
 								try
 								{
-									var expr = expressionParser.Parse(currentType, parsed.Value);
+									var expr = expressionParser.Parse(currentType, parsed.Value, null);
 
 									if (expr == null)
 									{

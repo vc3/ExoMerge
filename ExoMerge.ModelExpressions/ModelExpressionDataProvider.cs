@@ -38,11 +38,10 @@ namespace ExoMerge.ModelExpressions
 		/// <param name="expression">The expression to evaluate.</param>
 		/// <param name="format">The format string.</param>
 		/// <param name="provider">The format provider.</param>
-		/// <param name="rawValue">The unformatted value.</param>
 		/// <returns>The result of evaluating the expression for the current source object.</returns>
-		public virtual string GetFormattedValue(DataContext<IModelInstance, ModelExpression> context, ModelExpression expression, string format, IFormatProvider provider, out object rawValue)
+		public virtual string GetFormattedValue(DataContext<IModelInstance, ModelExpression> context, ModelExpression expression, string format, IFormatProvider provider)
 		{
-			return expression.GetFormattedValue(context.Source.Instance, format, provider, out rawValue);
+			return expression.GetFormattedValue(context.Source.Instance, format, provider);
 		}
 	}
 }

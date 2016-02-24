@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ExoMerge.DataAccess;
+using System;
 
 namespace ExoMerge.Rendering
 {
@@ -14,6 +15,8 @@ namespace ExoMerge.Rendering
 	public interface IGenerator<in TTarget, out TContent, in TSourceType, TSource, TExpression>
 		where TExpression : class
 	{
+		Type ExpectedType { get; }
+
 		/// <summary>
 		/// Generate content for the given expression.
 		/// </summary>

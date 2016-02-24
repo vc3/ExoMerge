@@ -20,7 +20,7 @@ namespace ExoMerge.UnitTests.Common
 			this.parser = new Regex(parser);
 		}
 
-		public string Parse(Type sourceType, string text)
+		public string Parse(Type sourceType, string text, Type resultType)
 		{
 			if (parser != null && !parser.IsMatch(text))
 				throw new Exception("Invalid expression: " + text);

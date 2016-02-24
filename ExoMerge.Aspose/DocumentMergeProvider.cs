@@ -201,7 +201,7 @@ namespace ExoMerge.Aspose
 		/// <summary>
 		/// Generate nodes for the given value to replace the given field.
 		/// </summary>
-		protected override Node[] GenerateStandardFieldContent(Document document, Field<Document, Node, DocumentToken<Node>, TSourceType, TSource, TExpression> field, object rawValue, string textValue)
+		protected override Node[] GenerateStandardFieldContent(Document document, Field<Document, Node, DocumentToken<Node>, TSourceType, TSource, TExpression> field, string textValue)
 		{
 			var nodeList = new List<Node>();
 
@@ -332,7 +332,7 @@ namespace ExoMerge.Aspose
 		/// <summary>
 		/// Merge a standard field with the given value.
 		/// </summary>
-		protected override void MergeStandardFieldValue(Document document, Field<Document, Node, DocumentToken<Node>, TSourceType, TSource, TExpression> field, object rawValue, string textValue)
+		protected override void MergeStandardFieldValue(Document document, Field<Document, Node, DocumentToken<Node>, TSourceType, TSource, TExpression> field, string textValue)
 		{
 			if (string.IsNullOrEmpty(textValue))
 			{
@@ -344,7 +344,7 @@ namespace ExoMerge.Aspose
 				else
 				{
 					// Blank values cause Aspose.Words 2.0.50727 to crash when generating a PDF, so replace empty values with a space.
-					Writer.ReplaceToken(document, field.Token, GenerateStandardFieldContent(document, field, rawValue, " "));
+					Writer.ReplaceToken(document, field.Token, GenerateStandardFieldContent(document, field, " "));
 				}
 
 				return;
@@ -473,7 +473,7 @@ namespace ExoMerge.Aspose
 				return;
 			}
 
-			base.MergeStandardFieldValue(document, field, rawValue, textValue);
+			base.MergeStandardFieldValue(document, field, textValue);
 		}
 	}
 

@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 
 namespace ExoMerge.Analysis
 {
@@ -29,7 +30,7 @@ namespace ExoMerge.Analysis
 		/// <param name="sourceType">The data source type.</param>
 		/// <param name="text">The expression text to parse.</param>
 		/// <returns>The parsed expression.</returns>
-		TExpression Parse(TType sourceType, string text);
+		TExpression Parse(TType sourceType, string text, Type resultType);
 
 		/// <summary>
 		/// Returns the result type of the given expression.

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ExoMerge.DataAccess;
 using ExoMerge.Helpers;
+using System;
 
 namespace ExoMerge.Rendering
 {
@@ -10,6 +11,8 @@ namespace ExoMerge.Rendering
 	public abstract class BooleanGenerator<TResult, TContent, TSourceType, TSource, TExpression> : IGenerator<TResult, TContent, TSourceType, TSource, TExpression>
 		where TExpression : class
 	{
+		public Type ExpectedType { get { return null; } }
+
 		/// <summary>
 		/// Converts the given value to a boolean.
 		/// </summary>

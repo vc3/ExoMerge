@@ -40,7 +40,7 @@ namespace ExoMerge.ModelExpressions.UnitTests
 
 			AssertException.OfType<ModelExpression.ParseException>()
 				.WithMessage("No property or field 'Ended' exists in type '" + typeof(Movie).FullName + "'")
-				.IsThrownBy(() => expr = Parser.Parse(type, "Ended"));
+				.IsThrownBy(() => expr = Parser.Parse(type, "Ended", null));
 
 			Assert.IsNull(expr);
 		}
@@ -68,7 +68,7 @@ namespace ExoMerge.ModelExpressions.UnitTests
 
 			AssertException.OfType<ModelExpression.ParseException>()
 				.WithMessage("No applicable aggregate method 'All' exists")
-				.IsThrownBy(() => expr = Parser.Parse(type, "Roles.All()"));
+				.IsThrownBy(() => expr = Parser.Parse(type, "Roles.All()", null));
 
 			Assert.IsNull(expr);
 		}
@@ -91,7 +91,7 @@ namespace ExoMerge.ModelExpressions.UnitTests
 		{
 			var rootType = ModelContext.Current.GetModelType<TRoot>();
 
-			var expr = Parser.Parse(rootType, expression);
+			var expr = Parser.Parse(rootType, expression, null);
 
 			Assert.IsNotNull(expr);
 
@@ -111,9 +111,7 @@ namespace ExoMerge.ModelExpressions.UnitTests
 
 			Assert.AreEqual(expectedResult, expr.GetValue(rootInstance));
 
-			object rawValue;
-			Assert.AreEqual(expectedFormattedResult, expr.GetFormattedValue(rootInstance, null, null, out rawValue));
-			Assert.AreEqual(expectedResult, rawValue);
+			Assert.AreEqual(expectedFormattedResult, expr.GetFormattedValue(rootInstance, null, null));
 		}
 	}
 }
