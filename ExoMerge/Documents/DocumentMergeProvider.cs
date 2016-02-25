@@ -98,7 +98,7 @@ namespace ExoMerge.Documents
 		}
 
 		/// <summary>
-		/// Called when a row's contents has been emptied during merge.
+		/// Called when a table's contents has been emptied during merge.
 		/// </summary>
 		protected virtual void OnTableEmptied(TNode table)
 		{
@@ -108,8 +108,12 @@ namespace ExoMerge.Documents
 
 		/// <summary>
 		/// Remove the given region's tags from the document.
+		/// 
+		/// Also:
+		/// * If the start and/or end tags occupy an entire row, then call 'OnRowEmptied'.
+		///		- This way you don't end up with empty rows once the tags are gone.
 		/// </summary>
-		internal override void RemoveRegionTags(TDocument document, IRegion<DocumentToken<TNode>> region)
+		protected internal override void RemoveRegionTags(TDocument document, IRegion<DocumentToken<TNode>> region)
 		{
 			var startParent = Adapter.GetParent(region.StartToken.Start);
 			var endParent = Adapter.GetParent(region.EndToken.End);
@@ -220,8 +224,15 @@ namespace ExoMerge.Documents
 
 		/// <summary>
 		/// Remove the given region from the document.
+		/// 
+		/// Also:
+		/// * If the region occupies an entire cell, then call 'OnCellEmptied'.
+		/// * If the region occupies an entire row, then call 'OnRowEmptied'.
+		/// * If not removing the region's end tag, and the end tag starts the next cell, then call 'OnCellEmptied'.
+		/// * If the region spans the entirety of more than one row, then call 'OnRowRemoved' for each row, unless
+		///   'KeepEmptyRegionRows' is enabled, in which case only the rows that contain the tags will flagged as "emptied".
 		/// </summary>
-		internal override void RemoveRegion(TDocument document, IRegion<DocumentToken<TNode>> region)
+		protected internal override void RemoveRegion(TDocument document, IRegion<DocumentToken<TNode>> region)
 		{
 			var startParent = Adapter.GetParent(region.StartToken.Start);
 			var endParent = Adapter.GetParent(region.EndToken.End);
@@ -295,6 +306,9 @@ namespace ExoMerge.Documents
 					}
 					else
 					{
+						// If not removing the end tag (i.e. "if, else if, else" scenario), then the region
+						// spans the entire cell if the end token is at the start of the next cell.
+
 						var beforeEnd = Adapter.GetPreviousSibling(region.EndToken.Start);
 
 						// Determine if the region spans the entire cell...

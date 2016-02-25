@@ -182,7 +182,7 @@ namespace ExoMerge
 		/// <summary>
 		/// Remove the given region from the target.
 		/// </summary>
-		internal virtual void RemoveRegion(TTarget target, IRegion<TToken> region)
+		protected internal virtual void RemoveRegion(TTarget target, IRegion<TToken> region)
 		{
 			if (region.OwnsStartToken && region.OwnsEndToken)
 				Writer.RemoveRegionNodes(target, region.StartToken, region.EndToken, RegionNodes.Start | RegionNodes.End | RegionNodes.Content);
@@ -197,7 +197,7 @@ namespace ExoMerge
 		/// <summary>
 		/// Remove the given region's tags from the target.
 		/// </summary>
-		internal virtual void RemoveRegionTags(TTarget target, IRegion<TToken> region)
+		protected internal virtual void RemoveRegionTags(TTarget target, IRegion<TToken> region)
 		{
 			if (region.OwnsStartToken && region.OwnsEndToken)
 				Writer.RemoveRegionNodes(target, region.StartToken, region.EndToken, RegionNodes.Start | RegionNodes.End);
