@@ -90,20 +90,21 @@ namespace ExoMerge.Aspose
 				EnumerateRuns(runs, (currentRunIndex, currentRunText, previousRunsTextLength) =>
 				{
 					// If the run overlaps with the value start index, then split the run in two.
-					if (previousRunsTextLength < valueStart + 1 && previousRunsTextLength + currentRunText.Length > valueStart)
+					if (previousRunsTextLength < valueStart && previousRunsTextLength + currentRunText.Length > valueStart)
 					{
 						runs.Insert(currentRunIndex + 1, Adapter.SpliceRight(runs[currentRunIndex], valueStart - previousRunsTextLength));
 
 						// Update vars to reflect the fact that the run was split.
 						previousRunsTextLength += valueStart - previousRunsTextLength;
 						currentRunIndex++;
+						currentRunText = Adapter.GetText(runs[currentRunIndex]);
 					}
 
 					// If the run overlaps with the value end index, then split the run in two.
 					if (previousRunsTextLength < valueEnd + 1 && previousRunsTextLength + currentRunText.Length - 1 > valueEnd)
 						runs.Insert(currentRunIndex, Adapter.SpliceLeft(runs[currentRunIndex], valueEnd - previousRunsTextLength));
 
-					// No need to continue if we've gone beyond hte value portion of the hyperlink.
+					// No need to continue if we've gone beyond the value portion of the hyperlink.
 					return previousRunsTextLength + currentRunText.Length < valueEnd;
 				});
 			}

@@ -82,7 +82,7 @@ namespace ExoMerge.Documents
 		{
 			var parentTable = Adapter.GetAncestor(row, DocumentNodeType.Table);
 
-			if (forceRemoval || !KeepEmptyRegionRows)
+			if (parentTable != null && (forceRemoval || !KeepEmptyRegionRows))
 			{
 				if (Adapter.GetChildren(parentTable).Count() == 1)
 				{

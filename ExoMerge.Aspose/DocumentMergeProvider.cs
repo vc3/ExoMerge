@@ -26,9 +26,12 @@ namespace ExoMerge.Aspose
 		where TSourceType : class
 		where TExpression : class
 	{
-		private const string HtmlTextExpr = @"(</?\w+((\s+\w+(\s*=\s*(?:"".*?""|'.*?'|[^'"">\s]+))?)+\s*|\s*)/?>)|(&([a-z]+|#x[0-9a-f]+|#[0-9]+);)";
+		protected const string HtmlTextExpr = @"(</?\w+((\s+\w+(\s*=\s*(?:"".*?""|'.*?'|[^'"">\s]+))?)+\s*|\s*)/?>)|(&([a-z]+|#x[0-9a-f]+|#[0-9]+);)";
 
-		private const string DataUriExpr = @"^data:image/(?<extension>[A-Za-z]+);base64,(?<content>.+)$";
+		protected const string DataUriExpr = @"^data:image/(?<extension>[A-Za-z]+);base64,(?<content>.+)$";
+
+		// Due to the limitations of MS Word, you cannot insert an image greater than 55.88cm (1584 points).
+		protected const double MaximumImageHeight = 1584;
 
 		/// <summary>
 		/// Creates a new merge provider.
